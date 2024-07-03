@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Número</title>
+<script>
+function calcularFibonacci() {
+    var numero = document.getElementById('numero').value;
+    if (numero === '') {
+        alert('Por favor, informe um número.');
+        return;
+    }
+    
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'fibonacci.php?numero=' + encodeURIComponent(numero), true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('resultado').innerHTML = xhr.responseText;
+        } else {
+            alert('Ocorreu um erro ao calcular a sequência de Fibonacci.');
+        }
+    };
+    xhr.send();
+}
+</script>
+</head>
+<body>
+    
+<img src="recetg/img.rafa/fibonacci.webp" alt="imgfibonacci">
+
+<h1>A sequência de Fibonacci é uma sequência numérica em que cada termo a partir do terceiro é a soma dos dois antecessores. O primeiro termo da sequência de Fibonacci é o número 1 e o segundo termo também é o número 1. O terceiro termo é 2, pois 1+1=2. Já o quarto termo é 3, pois 1+2=3.</h1>
+
+<h2>Informe um Número</h2>
+
+<form>
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" required>
+    <br><br>
+    <input type="button" value="Calcular Fibonacci" onclick="calcularFibonacci()">
+</form>
+
+<div id="resultado"></div>
+
+</body>
+</html>

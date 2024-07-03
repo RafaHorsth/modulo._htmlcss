@@ -1,0 +1,29 @@
+algoritmo seq.fibonacci
+
+var
+    termo1, termo2, proximo_termo, n, i: inteiro
+
+inicio
+    escreva("Quantos termos da sequ�ncia de Fibonacci deseja calcular? ")
+    leia(n)
+
+
+    termo1 <- 0
+    termo2 <- 1
+
+
+    para i de 1 ate n faca
+        se i = 1 entao
+            escreva(termo1)
+        senao se i = 2 entao
+            escreva(", ", termo2)
+        senao
+            proximo_termo <- termo1 + termo2
+            escreva(", ", proximo_termo)
+            termo1 <- termo2
+            termo2 <- proximo_termo
+        fimse
+    fimpara
+
+    escreval("")
+fimalgoritmo
